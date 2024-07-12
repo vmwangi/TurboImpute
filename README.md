@@ -37,15 +37,11 @@ print(missing_summary)
 df = tp.impute_mean(df, columns=['column1', 'column2'])
 
 # Remove rows with missing values
-df = tp.drop_missing_rows(df, threshold=0.5)
+df = tp.drop_missing_rows(df)
 
 # Visualize missing values (boxplot for numerical variables)
 tp.visualize_missing(df)
 
-# Check best imputation method
-best_method, errors = tp.check_best_method(df, columns=['column1', 'column2'])
-print(f"Best imputation method: {best_method}")
-print(f"Errors: {errors}")
 ```
 
 
@@ -69,16 +65,13 @@ print(f"Errors: {errors}")
 
 ## Removal (`TurboImpute.removal`)
 
-- `drop_missing_rows(df, threshold=0.5)`: Drops rows with missing values based on a threshold.
-- `drop_missing_columns(df, threshold=0.5)`: Drops columns with missing values based on a threshold.
+- `drop_missing_rows(df)`: Drops rows with missing values.
+- `drop_missing_columns(df)`: Drops columns with missing values.
 
 ## Visualization (`TurboImpute.visualization`)
 
 - `visualize_missing(df)`: Visualizes missing values using boxplots for numerical variables.
 
-## Recommendation (`TurboImpute.recommendation`)
-
-- `check_best_method(df, columns=None, test_size=0.2, random_state=42)`: Determines the best imputation method to use based on mean squared error evaluation.
 
 
 # License
